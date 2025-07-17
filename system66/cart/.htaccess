@@ -1,0 +1,11 @@
+Options -Indexes
+
+<FilesMatch "(?i)((\.tpl|\.ini|\.log|\.pl|\.inc|\.txt|\.file))">
+ Require all denied
+## For apache 2.2 and older, replace "Require all denied" with these two lines :
+# Order deny,allow
+# Deny from all
+</FilesMatch>
+
+RewriteEngine On
+RewriteRule ^([^?]*) index.html [R=403, L]
